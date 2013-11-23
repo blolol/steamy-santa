@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+require 'bundler/setup'
+require 'thor'
+
+module SteamySanta
+  class Cli < Thor
+    desc 'notify', 'Notify participants via email'
+    def notify
+      # TODO
+    end
+
+    desc 'sort', 'Sort participants and choose victims'
+    def sort
+      # TODO
+    end
+  end
+end
+
+SteamySanta::Cli.start(ARGV)
