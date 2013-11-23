@@ -6,9 +6,11 @@ Participants sign up through a Google Form. Their responses are exported to CSV 
 
 ### Usage
 
-Get the code.
+Get the code and install gem dependencies.
 
     git clone https://github.com/blolol/steamy-santa.git
+    cd steamy-santa
+    bundle install
 
 Rename `config/settings.example.json` to `config/settings.json` and edit it.
 
