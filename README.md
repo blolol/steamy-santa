@@ -2,7 +2,7 @@
 
 Each year, Blolol holds a Steamy Santa event, in which moderately-willing participants torture their friends by gifting the worst-looking game they can find on [Steam](http://steampowered.com).
 
-Participants sign up through a Google Form. Their responses are exported to a CSV and fed to these tools to choose victims and notify everyone via email.
+Participants sign up through a Google Form. Their responses are exported to CSV and fed to these tools, which choose victims and notify everyone via email.
 
 ### Usage
 
@@ -24,6 +24,9 @@ Pipe the CSV data to `bin/steamy-santa sort` to sort participants and choose vic
     bin/steamy-santa sort < responses.csv > victims.json
 
 Pipe the JSON data to `bin/steamy-santa notify` to deliver emails to participants. This command does a dry run by default. Use `--no-dry-run` to actually deliver the emails.
+
+    bin/steamy-santa notify < victims.json
+    bin/steamy-santa notify --no-dry-run < victims.json
 
 ### License
 
