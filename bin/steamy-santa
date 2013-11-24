@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 require 'bundler/setup'
+require 'json'
+require 'steamy_santa'
 require 'thor'
 
 module SteamySanta
@@ -11,7 +13,9 @@ module SteamySanta
 
     desc 'sort', 'Sort participants and choose victims'
     def sort
-      # TODO
+      sorter = Sorter.new($stdin)
+      json = JSON.pretty_generate(sorter.to_json)
+      puts json
     end
   end
 end
