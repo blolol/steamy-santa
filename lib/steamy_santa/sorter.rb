@@ -5,7 +5,13 @@ module SteamySanta
     end
 
     def participants
-      @participants ||= shuffled_participants_with_victims
+      shuffled_participants_with_victims
+    end
+
+    def to_json
+      participants.each_with_object({}) do |participant, hash|
+        hash[participant.nickname] = participant.to_json
+      end
     end
 
     private
@@ -42,7 +48,7 @@ module SteamySanta
 
     def rotate_participants(participants)
       rotated_indexes = (0...participants.size).to_a
-      rotations = participants.size - 1
+      rotations = rand(1...participants.size)
 
       rotations.times do
         rotated_indexes << rotated_indexes.shift

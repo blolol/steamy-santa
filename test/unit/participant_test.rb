@@ -28,5 +28,23 @@ module SteamySanta
       assert_equal participant, equal_participant
       refute_equal participant, different_participant
     end
+
+    test '#to_json' do
+      participant = Participant.new('Raws', 'raws@example.com', 'rawsosaurus', %w(Mac Windows),
+        'High heels, suspenders and a bra.')
+      victim = Participant.new('Doolan', 'raws@example.com', 'rawsosaurus', %w(Mac Windows),
+        'High heels, suspenders and a bra.')
+      participant.victim = victim
+
+      expected_json = {
+        'email' => 'raws@example.com',
+        'steam_username' => 'rawsosaurus',
+        'steam_platforms' => ['Mac', 'Windows'],
+        'wearing' => 'High heels, suspenders and a bra.',
+        'victim' => 'Doolan'
+      }
+
+      assert_equal expected_json, participant.to_json
+    end
   end
 end

@@ -11,6 +11,16 @@ module SteamySanta
       @wearing = wearing
     end
 
+    def to_json
+      {
+        'email' => email,
+        'steam_username' => steam_username,
+        'steam_platforms' => steam_platforms,
+        'wearing' => wearing,
+        'victim' => victim.nickname
+      }
+    end
+
     def ==(other)
       nickname == other.nickname
     end
