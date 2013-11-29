@@ -1,14 +1,20 @@
 #!/usr/bin/env ruby
 require 'bundler/setup'
 require 'json'
+require 'logger'
 require 'steamy_santa'
 require 'thor'
 
 module SteamySanta
   class Cli < Thor
     desc 'notify', 'Notify participants via email'
+    option :'dry-run', type: :boolean, default: true, desc: "Don't send emails"
     def notify
-      # TODO
+      SteamySanta::Logging.logger = Logger.new(STDOUT)
+
+      notifier_options = { dry_run: options[:'dry-run'] }
+      notifier = Notifier.new($stdin, notifier_options)
+      notifier.notify
     end
 
     desc 'sort', 'Sort participants and choose victims'

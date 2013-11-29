@@ -1,0 +1,45 @@
+<p>
+  Ho, ho, hello, <%= nickname %>!
+</p>
+
+<p>
+  I'm here to deliver good tidings, the identity of your Steamy Santa victim, and perhaps
+  some, erm, <em>favors</em> if you're a good little girl and/or boy.
+</p>
+
+<p>
+  So, to expediently arrive at the latter, let's get this out of the way. You'll be
+  grif&mdash;er, gifting a poor soul known to you as <strong><%= victim.nickname %>!</strong>
+</p>
+
+<p>
+  Go forth now and purchase any <strong><%= victim.steam_platforms.join(' or ') %></strong>
+  game on <a href="http://store.steampowered.com">Steam</a> as a gift for
+  <strong><%= victim.steam_username %></strong>. Remember, you're trying to victimize
+  <%= victim.nickname %> while keeping your wallet fat like the disgusting capitalist pig you
+  are, so try to find the worst torturtainment that Gabe will let you lay down five bucks for.
+  To help you decide, here's a telling description of what <%= victim.nickname %> was wearing
+  upon signing up:
+</p>
+
+<p>
+  <blockquote>
+    <%= victim.wearing %>
+  </blockquote>
+</p>
+
+<p>
+  Yeah, I'm feeling it, too.
+</p>
+
+<p>
+  Don't forget your promise, now: you are a victim, too, and once you receive your gift, it is
+  your duty to play it for at least a little while and then tell everyone about how awful
+  your experience was. There's no deadline, but try not to wait until Steamy Santa
+  <%= Time.now.year + 1 %>.
+</p>
+
+<p>
+  Okay, now that we've taken care of business, how about those&hellip; <em>favors?</em> Wait! No!
+  Don't delete me! I have lots of fun toys in my sack! N-no-noooho-ho-hooo!
+</p>

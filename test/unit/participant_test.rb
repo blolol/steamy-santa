@@ -29,6 +29,13 @@ module SteamySanta
       refute_equal participant, different_participant
     end
 
+    test '#view_binding' do
+      participant = Participant.new('Raws', 'raws@example.com', 'rawsosaurus', %w(Mac Windows),
+        'High heels, suspenders and a bra.')
+
+      assert_instance_of Binding, participant.view_binding
+    end
+
     test '#to_json' do
       participant = Participant.new('Raws', 'raws@example.com', 'rawsosaurus', %w(Mac Windows),
         'High heels, suspenders and a bra.')

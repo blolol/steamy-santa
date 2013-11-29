@@ -1,0 +1,30 @@
+{
+  "CCP": {
+    "email": "ccp@example.com",
+    "steam_username": "goeatfood",
+    "steam_platforms": [
+      "Mac"
+    ],
+    "wearing": "And now for something completely different!",
+    "victim": "Raws"
+  },
+  "Doolan": {
+    "email": "doolan@example.com",
+    "steam_username": "stdoolan",
+    "steam_platforms": [
+      "Windows"
+    ],
+    "wearing": "High heels, suspenders and a bra.",
+    "victim": "CCP"
+  },
+  "Raws": {
+    "email": "raws@example.com",
+    "steam_username": "rawsosaurus",
+    "steam_platforms": [
+      "Mac",
+      "Windows"
+    ],
+    "wearing": "I wish I was a girly, just like my dear papa.",
+    "victim": "Doolan"
+  }
+}

@@ -21,6 +21,10 @@ module SteamySanta
       }
     end
 
+    def view_binding
+      binding
+    end
+
     def ==(other)
       nickname == other.nickname
     end
