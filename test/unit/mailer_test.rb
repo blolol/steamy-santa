@@ -36,6 +36,38 @@ module SteamySanta
       @mailer.deliver
     end
 
+    test 'overriding the recipient address' do
+      stub_settings to: 'Expected <expected@example.com>'
+
+      assert_includes @mailer.to_s, 'To: Expected <expected@example.com>'
+
+      expected_body = <<-EOS.strip_heredoc.strip
+        Ho, ho, ho, CCP!
+        You get to buy a game for Doolan, whose Steam username is "stdoolan"!
+        Doolan can play Mac and Windows games.
+        Upon signing up, Doolan was wearing "High heels, suspenders and a bra."
+      EOS
+
+      expected_options = {
+        from: 'Santa Claus <santa@example.com>',
+        html_body: expected_body,
+        subject: "Ho, ho, ho! It's time to get steamy!",
+        to: 'Expected <expected@example.com>',
+        via: :smtp,
+        via_options: {
+          address: 'smtp.example.com',
+          enable_starttls_auto: true,
+          password: 's3cr3t',
+          port: 587,
+          username: 'example'
+        }
+      }
+
+      Pony.expects(:mail).once.with(expected_options)
+
+      @mailer.deliver
+    end
+
     test '#to_s' do
       expected = <<-EOS.strip_heredoc.strip
            From: Santa Claus <santa@example.com>
@@ -65,7 +97,7 @@ module SteamySanta
       @participant.victim = victim
     end
 
-    def stub_settings
+    def stub_settings(settings = {})
       view_path = File.join(File.dirname(__FILE__), '..', 'views', 'mailer.erb')
 
       SteamySanta.stubs(:settings).returns({
@@ -79,7 +111,7 @@ module SteamySanta
         },
         subject: "Ho, ho, ho! It's time to get steamy!",
         view: view_path
-      })
+      }.merge(settings))
     end
   end
 end

@@ -10,10 +10,6 @@ module SteamySanta
       Pony.mail(pony_options)
     end
 
-    def to
-      "#{@participant.nickname} <#{@participant.email}>"
-    end
-
     def to_s
       <<-EOS.strip_heredoc
            From: #{from}
@@ -51,6 +47,10 @@ module SteamySanta
 
     def subject
       settings[:subject]
+    end
+
+    def to
+      settings[:to] || "#{@participant.nickname} <#{@participant.email}>"
     end
 
     def view

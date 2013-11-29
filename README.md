@@ -30,6 +30,12 @@ Pipe the JSON data to `bin/steamy-santa notify` to deliver emails to participant
     bin/steamy-santa notify < victims.json
     bin/steamy-santa notify --dry-run=false < victims.json
 
+You can also test that your SMTP settings are correct, and that the emails render correctly in clients by sending every message to your own email address, by providing a recipient address in `config/settings.json`.
+
+    {
+      "to": "me@example.com"
+    }
+
 ### License
 
 Copyright (c) 2013 Blolol. MIT licensed.
