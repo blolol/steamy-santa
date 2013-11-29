@@ -34,6 +34,12 @@ module SteamySanta
       body.lines.join("        ")
     end
 
+    def interpolations
+      {
+        nickname: @participant.nickname
+      }
+    end
+
     def pony_options
       {
         from: from,
@@ -46,7 +52,7 @@ module SteamySanta
     end
 
     def subject
-      settings[:subject]
+      settings[:subject] % interpolations
     end
 
     def to

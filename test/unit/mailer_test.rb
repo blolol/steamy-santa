@@ -19,7 +19,7 @@ module SteamySanta
       expected_options = {
         from: 'Santa Claus <santa@example.com>',
         html_body: expected_body,
-        subject: "Ho, ho, ho! It's time to get steamy!",
+        subject: "Ho, ho, ho! It's time to get steamy, CCP!",
         to: 'CCP <ccp@example.com>',
         via: :smtp,
         via_options: {
@@ -51,7 +51,7 @@ module SteamySanta
       expected_options = {
         from: 'Santa Claus <santa@example.com>',
         html_body: expected_body,
-        subject: "Ho, ho, ho! It's time to get steamy!",
+        subject: "Ho, ho, ho! It's time to get steamy, CCP!",
         to: 'Expected <expected@example.com>',
         via: :smtp,
         via_options: {
@@ -72,7 +72,7 @@ module SteamySanta
       expected = <<-EOS.strip_heredoc.strip
            From: Santa Claus <santa@example.com>
              To: CCP <ccp@example.com>
-        Subject: Ho, ho, ho! It's time to get steamy!
+        Subject: Ho, ho, ho! It's time to get steamy, CCP!
 
         Ho, ho, ho, CCP!
         You get to buy a game for Doolan, whose Steam username is "stdoolan"!
@@ -109,7 +109,7 @@ module SteamySanta
           port: 587,
           username: 'example'
         },
-        subject: "Ho, ho, ho! It's time to get steamy!",
+        subject: "Ho, ho, ho! It's time to get steamy, %{nickname}!",
         view: view_path
       }.merge(settings))
     end
