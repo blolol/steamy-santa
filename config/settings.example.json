@@ -1,0 +1,12 @@
+{
+  "from": "Santa Claus <santa@example.com>",
+  "subject": "Ho, ho, ho! It's time to get steamy!",
+  "view": "2013",
+  "smtp": {
+    "address": "smtp.example.com",
+    "port": 587,
+    "username": "example",
+    "password": "s3cr3t",
+    "enable_starttls_auto": true
+  }
+}
