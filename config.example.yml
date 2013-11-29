@@ -1,0 +1,24 @@
+via:
+  :address: smtp.gmail.com
+  :port: 587
+  :enable_starttls_auto: true
+  :user_name: santa@blolol.com
+  :password: secret
+from: Santa Claus <santa@blolol.com>
+subject: "Ho, ho, ho! It's time to get steamy!"
+body: |
+  Ho, ho, ho, <%= @person[:nick] %>!
+
+  I'm here to deliver good tidings, the identity of your Perkele Steamy Santa victim, and perhaps sexual favors if you're a good little girl and/or boy.
+
+  So, to expediently arrive at the latter, let's get this out of the way. You'll be grifting—I mean gifting—a poor soul known to you as <%= @victim[:nick] %>!
+
+  Go forth now and purchase any <%= @victim[:platform] %> game on Steam as a gift for "<%= @victim[:steam] %>". Remember, you're trying to victimize <%= @victim[:nick] %> while simultaneously keeping your wallet appropriately fat like the greedy capitalist pig you are, so try and find the worst-sounding hour of torture you can possibly lay down five bucks for. To help you decide, here's a telling description of what <%= @victim[:nick] %> was wearing upon signing up:
+
+  "<%= @victim[:details].strip %>"
+
+  Arousing, eh?
+
+  Don't forget your promise, now: you are a victim, too, and once you receive your gift, it is your duty to play it for at least an hour and deliver a post-action report in a format and complexity of your choosing. There's no deadline, but try not to wait until Steamy Santa <%= Time.now.year + 1 %>.
+
+  Okay, now that we've taken care of business… time for the sexual favors! Wait! No! Don't delete me! My hair's not THAT scratchy! N—n—nooooho-ho-hooo!
