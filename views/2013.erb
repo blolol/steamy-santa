@@ -10,35 +10,36 @@
 
 <p>
   So, to expediently arrive at the latter, let's get this out of the way. You'll be
-  grif&mdash;er, gifting a poor soul known to you as <strong><%= victim.nickname %></strong>!
+  grif&mdash;er, gifting a poor soul known to you as&hellip;
+  <strong><%= victim.nickname %></strong>!
 </p>
 
 <p>
   Go forth now and purchase any <strong><%= victim.steam_platforms.join(' or ') %></strong>
   game on <a href="http://store.steampowered.com">Steam</a> as a gift for
   <strong><%= victim.steam_username %></strong>. Remember, you're trying to victimize
-  <%= victim.nickname %> while keeping your wallet fat like the repulsive consumer you are,
-  so try to find the worst torturtainment that Gabe will let you lay down five bucks for.
+  <%= victim.nickname %> while maintaining the considerable girth of your wallet like the giddy
+  capitalist you are, so try to find the worst torturtainment that Gabe will let you lay down
+  five bucks for.
 </p>
 
 <p>
-  To help you decide, here's a telling description of what <%= victim.nickname %> was wearing
-  upon signing up:
+  To help get you in the mood, here's what <%= victim.nickname %> is wearing for you:
 </p>
 
 <p>
   <blockquote style="font-style: italic;">
-    <%= victim.wearing %>
+    &ldquo;<%= victim.wearing.gsub(/[\r\n]/, '<br/>').strip %>&rdquo;
   </blockquote>
 </p>
 
 <p>
-  Yeah, I'm feeling it, too.
+  Are your juices flowing? Mine are.
 </p>
 
 <p>
-  Don't forget your promise, now: you are a victim, too, and once you receive your gift, it is
-  your duty to play it for at least a little while and then tell everyone about how awful
+  Don't forget your promise, now: you are a victim, too, and once you receive <em>your</em> gift,
+  it is your duty to play it for at least a little while and then tell everyone about how awful
   your experience was. There's no deadline, but try not to wait until Steamy Santa
   <%= Time.now.year + 1 %>.
 </p>
