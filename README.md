@@ -38,4 +38,4 @@ You can also test that your SMTP settings are correct, and that the emails rende
 
 ### License
 
-Copyright (c) 2013 Blolol. MIT licensed.
+Copyright (c) 2014 Blolol. MIT licensed.
