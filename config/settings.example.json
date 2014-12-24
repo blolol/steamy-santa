@@ -5,7 +5,7 @@
   "smtp": {
     "address": "smtp.example.com",
     "port": 587,
-    "username": "example",
+    "user_name": "example",
     "password": "s3cr3t",
     "enable_starttls_auto": true
   }
