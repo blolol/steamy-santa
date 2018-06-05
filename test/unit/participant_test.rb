@@ -2,7 +2,7 @@ require 'test_helper'
 
 module SteamySanta
   class ParticipantTest < TestCase
-    test 'creating a participant' do
+    def test_creating_a_participant
       participant = Participant.new('Raws', 'raws@example.com', 'rawsosaurus', %w(Mac Windows),
         'High heels, suspenders and a bra.')
 
@@ -18,7 +18,7 @@ module SteamySanta
       assert_equal :stubbed_participant, participant.victim
     end
 
-    test 'comparing participants' do
+    def test_comparing_participants
       participant = Participant.new('Raws', 'raws@example.com', 'rawsosaurus', %w(Mac Windows),
         'High heels, suspenders and a bra.')
       equal_participant = Participant.new('Raws', 'raws2@example.com', 'rawsosaurus2', %w(Mac), 'Merino wool.')
@@ -29,14 +29,14 @@ module SteamySanta
       refute_equal participant, different_participant
     end
 
-    test '#view_binding' do
+    def test_view_binding
       participant = Participant.new('Raws', 'raws@example.com', 'rawsosaurus', %w(Mac Windows),
         'High heels, suspenders and a bra.')
 
       assert_instance_of Binding, participant.view_binding
     end
 
-    test '#to_json' do
+    def test_to_json
       participant = Participant.new('Raws', 'raws@example.com', 'rawsosaurus', %w(Mac Windows),
         'High heels, suspenders and a bra.')
       victim = Participant.new('Doolan', 'raws@example.com', 'rawsosaurus', %w(Mac Windows),

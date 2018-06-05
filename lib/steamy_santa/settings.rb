@@ -4,11 +4,8 @@ module SteamySanta
       if @settings
         @settings
       else
-        settings_path = File.dirname(__FILE__) + '/../../config/settings.json'
-
-        File.open(settings_path, 'r') do |io|
-          @settings = JSON.parse(io.read, symbolize_names: true)
-        end
+        settings_path = File.join(File.dirname(__FILE__), '../../config/settings.json')
+        @settings = JSON.parse(File.read(settings_path), symbolize_names: true)
       end
     end
   end

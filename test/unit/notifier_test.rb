@@ -2,7 +2,7 @@ require 'test_helper'
 
 module SteamySanta
   class NotifierTest < TestCase
-    test 'that the default is a dry run' do
+    def test_that_default_is_dry_run
       stub_mailer_body
       Mailer.any_instance.expects(:deliver).never
 
@@ -13,7 +13,7 @@ module SteamySanta
       notifier.notify
     end
 
-    test 'sending actual emails' do
+    def test_sending_actual_emails
       stub_mailer_body
       Mailer.any_instance.expects(:deliver).times(3)
 

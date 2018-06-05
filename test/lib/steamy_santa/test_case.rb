@@ -1,17 +1,10 @@
 module SteamySanta
-  class TestCase < MiniTest::Unit::TestCase
-    def self.test(name, &block)
-      define_method "test #{name.inspect}", &block
-    end
-
+  class TestCase < Minitest::Test
     private
 
     def fixture(name)
-      path = File.dirname(__FILE__) + "/../../fixtures/#{name}"
-
-      File.open(path, 'r') do |io|
-        io.read
-      end
+      path = File.expand_path(File.join(File.dirname(__FILE__), "../../fixtures/#{name}"))
+      File.read(path)
     end
   end
 end

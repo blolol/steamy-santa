@@ -2,7 +2,7 @@ require 'test_helper'
 
 module SteamySanta
   class SorterTest < TestCase
-    test 'parsing invalid CSV data' do
+    def test_parsing_invalid_csv_data
       invalid_csv_data = fixture('invalid.csv')
       sorter = Sorter.new(invalid_csv_data)
 
@@ -11,7 +11,7 @@ module SteamySanta
       end
     end
 
-    test 'parsing CSV data with not enough participants' do
+    def test_parsing_csv_data_with_too_few_participants
       incomplete_csv_data = fixture('not_enough_participants.csv')
       sorter = Sorter.new(incomplete_csv_data)
 
@@ -20,7 +20,7 @@ module SteamySanta
       end
     end
 
-    test 'parsing participants from valid CSV data' do
+    def test_parsing_participants_from_valid_csv_data
       valid_csv_data = fixture('valid.csv')
       sorter = Sorter.new(valid_csv_data)
 
@@ -37,7 +37,7 @@ module SteamySanta
       end
     end
 
-    test '#to_json' do
+    def test_to_json
       ccp = Participant.new('CCP', 'ccp@example.com', 'goeatfood', %w(Mac),
         'And now for something completely different!')
       doolan = Participant.new('Doolan', 'doolan@example.com', 'stdoolan', %w(Windows),

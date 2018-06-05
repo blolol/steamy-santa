@@ -8,7 +8,7 @@ module SteamySanta
       build_mailer
     end
 
-    test '#deliver' do
+    def test_delivery
       expected_body = <<-EOS.strip_heredoc.strip
         Ho, ho, ho, CCP!
         You get to buy a game for Doolan, whose Steam username is "stdoolan"!
@@ -36,7 +36,7 @@ module SteamySanta
       @mailer.deliver
     end
 
-    test 'overriding the recipient address' do
+    def test_overriding_recipient_address
       stub_settings to: 'Expected <expected@example.com>'
 
       assert_includes @mailer.to_s, 'To: Expected <expected@example.com>'
@@ -68,7 +68,7 @@ module SteamySanta
       @mailer.deliver
     end
 
-    test '#to_s' do
+    def test_to_s
       expected = <<-EOS.strip_heredoc.strip
            From: Santa Claus <santa@example.com>
              To: CCP <ccp@example.com>
@@ -98,7 +98,7 @@ module SteamySanta
     end
 
     def stub_settings(settings = {})
-      view_path = File.join(File.dirname(__FILE__), '..', 'views', 'mailer.erb')
+      view_path = File.expand_path(File.join(File.dirname(__FILE__), '..', 'views', 'mailer.erb'))
 
       SteamySanta.stubs(:settings).returns({
         from: 'Santa Claus <santa@example.com>',

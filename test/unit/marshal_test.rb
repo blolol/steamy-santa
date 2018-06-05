@@ -2,7 +2,7 @@ require 'test_helper'
 
 module SteamySanta
   class MarshalTest < TestCase
-    test '.load_participants_from_json' do
+    def test_load_participants_from_json
       json = StringIO.new(<<-EOJSON)
         {
           "CCP": {
